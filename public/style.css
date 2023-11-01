@@ -1,0 +1,116 @@
+:root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 16px;
+}
+
+.user_table {
+    border-collapse: collapse;
+    width: 100vw; /* Set the width to 100% of the viewport width */
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+
+.user_table th,
+.user_table td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: 1px solid #494949;
+}
+.user_table tr:hover {
+    background-color: #3f3f3f;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.user_table th {
+    background-color: #9e9fa5;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.user_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.user_info img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.user_info p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.user_info .name {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.user_info .email {
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.user_info .phone {
+    margin-bottom: 10px;
+}
+
+.user_form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.user_form label {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.user_form input[type="text"],
+.user_form input[type="email"],
+.user_form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.user_form button[type="submit"] {
+    background-color: #806f6f;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px; 
+}
+
+
+
+.user_form button[type="submit"]:hover {
+    background-color: #333;
+}
+
+
+
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <form action="" class="user_form">
+        <label for="numberRequests">How many people would you like to request? (Left blank returns 10)</label>
+        <input type="number" id="numberRequests">
+        <br>
+        <input type="button" id="formSend" value="Submit">
+        <br>
+    </form>
+
+    <table class="user_table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+      </table>
+      
+      <div id="userInfo" class="user_info"></div>
+      
+      <script>
+        const numberRequests = document.getElementById('numberRequests')
+        const formSend = document.getElementById('formSend')
+        const tableBody = document.getElementById('tableBody')
+        const userInfo = document.getElementById('userInfo')
+      
+        formSend.addEventListener('click', async () => {
+          const num = numberRequests.value
+          let response = await fetch(`/users?results=${num}`)
+          let users = await response.json()
+      
+          for (let user of users) {
+            let row = tableBody.insertRow()
+            let firstNameCell = row.insertCell()
+            let lastNameCell = row.insertCell()
+            let emailCell = row.insertCell()
+            let phoneCell = row.insertCell()
+      
+            firstNameCell.innerHTML = `${user.name.first}`
+            lastNameCell.innerHTML = `${user.name.last}`
+            emailCell.innerHTML = `${user.email}`
+            phoneCell.innerHTML = `${user.phone}`
+      
+            // Add event listener to each row
+            row.addEventListener('click', () => {
+              // Display user info in the userInfo div
+              userInfo.innerHTML = `
+                <img src=${user.picture.large}></img>
+                <p class='name' >Name: ${user.name.first} ${user.name.last}</p>
+                <p class='email' >Email: ${user.email}</p>
+                <p class='phone' >Phone: ${user.phone}</p>
+              `
+            })
+          }
+        })
+      
+      </script>
+
+</body>
+</html>
